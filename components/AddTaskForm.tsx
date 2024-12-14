@@ -9,14 +9,12 @@ const AddTaskForm = () => {
 
   const [title, setTitle] = useState("");
 
-  const addTasks = useStore((state: any) => state.addNewTask);
+  const addTasks = useStore((state) => state.addNewTask);
 
   const addActive = () => {
     const id = crypto.randomUUID();
     const newTask = { id, title, status: "active" };
-
     addTasks(newTask);
-
     setTitle("");
   };
 

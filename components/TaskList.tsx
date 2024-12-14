@@ -3,7 +3,7 @@
 import { Task } from "@/interfaces/task";
 import { Circle, CircleCheckBig } from "lucide-react";
 import ClearCompleted from "@/components/ClearCompleted";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useStore } from "@/store/store";
 
 const ActiveTaskList = () => {
