@@ -1,0 +1,11 @@
+{
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": ["@testing-library/jest-dom"],
+  "testMatch": ["**/?(*.)+(test).[jt]s?(x)"],
+  "transform": {
+    "^.+\\.(ts|tsx)$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "\\.(css|less|sass|scss)$": "identity-obj-proxy"
+  }
+}

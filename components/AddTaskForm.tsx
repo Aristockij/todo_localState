@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown } from "lucide-react";
 import { useStore } from "@/store/store";
+import Input from "@/components/Input";
+import Button from "@/components/Button";
 
 const AddTaskForm = () => {
   const [disableBtn, setDisableBtn] = useState(false);
@@ -17,6 +18,9 @@ const AddTaskForm = () => {
     addTasks(newTask);
     setTitle("");
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setTitle(e.target.value);
 
   useEffect(() => {
     if (title.length > 0) {
@@ -34,23 +38,8 @@ const AddTaskForm = () => {
       }}
     >
       <div className='relative'>
-        <input
-          type='text'
-          value={title}
-          className='outline-none border border-slate-950  pl-10 h-8 w-full '
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <button
-          type='submit'
-          className={
-            disableBtn
-              ? " pl-1 pr-2 mt-2 rounded-lg absolute bottom-0 left-0  h-full "
-              : " pl-1 pr-2 mt-2 rounded-lg absolute bottom-0 left-0  h-full "
-          }
-          disabled={disableBtn}
-        >
-          <ChevronDown color={disableBtn ? "gray" : "black"} size={25} />
-        </button>
+        <Input value={title} setValue={handleInputChange} />
+        <Button disableBtn={disableBtn} />
       </div>
     </form>
   );
